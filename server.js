@@ -1,6 +1,9 @@
 const express = require('express');
+const connectDB = require('./config/db');
 
 const app = express();
+
+connectDB();
 
 const url = process.env.MAIN_URL || '/api';
 app.use(`${url}/users`, require('./routes/users'));

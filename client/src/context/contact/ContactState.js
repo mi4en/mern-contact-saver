@@ -52,14 +52,20 @@ const ContactState = props => {
 			dispatch({ type: ADD_CONTACT, payload: res.data });
 		} catch (error) {
 			console.error(error);
-
 			dispatch({ type: CONTACT_ERROR, payload: error.response.msg });
 		}
 	};
 
 	// Delete Contact
-	const deleteContact = id => {
-		dispatch({ type: DELETE_CONTACT, payload: id });
+	const deleteContact = async id => {
+		try {
+			await axios.delete(`/api/contacts/${id}`);
+
+			dispatch({ type: DELETE_CONTACT, payload: id });
+		} catch (error) {
+			console.error(error);
+			dispatch({ type: CONTACT_ERROR, payload: error.response.msg });
+		}
 	};
 
 	// Clear Contacts

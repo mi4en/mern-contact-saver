@@ -10,10 +10,10 @@ connectDB();
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-const url = process.env.MAIN_URL || '/api';
-app.use(`${url}/users`, require('./routes/users'));
-app.use(`${url}/contacts`, require('./routes/contacts'));
-app.use(`${url}/auth`, require('./routes/auth'));
+// const url = process.env.MAIN_URL || '/api';
+app.use(`/api/users`, require('./routes/users'));
+app.use(`/api/contacts`, require('./routes/contacts'));
+app.use(`/api/auth`, require('./routes/auth'));
 
 // Serve static assets in prod
 if (process.env.NODE_ENV === 'production') {

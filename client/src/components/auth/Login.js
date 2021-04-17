@@ -29,7 +29,6 @@ const Login = props => {
 	const { email, password } = user;
 
 	const onChange = e => {
-		console.log('on change event: ', e);
 		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 

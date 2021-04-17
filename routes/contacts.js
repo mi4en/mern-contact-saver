@@ -36,8 +36,6 @@ router.post(
 
 		const { name, email, phone, type } = req.body;
 
-		console.log(req.user);
-
 		try {
 			const newContact = new Contact({
 				name,
